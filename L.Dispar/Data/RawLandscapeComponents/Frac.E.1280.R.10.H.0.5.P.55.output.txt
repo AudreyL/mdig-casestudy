@@ -1,0 +1,92 @@
+
+
+         Qrule (v 4.1) Landscape Pattern Analysis          03/02/16 
+         Enter map type to be analyzed:
+               <I>  Input existing map file
+               <R>  Generate a random map (with replacement)
+               <S>  Generate a simple random map
+               <M>  Generate a multifractal random map
+               <G>  Generate a multifractal random map with a gradient
+               <X>  Use input map as mask, generate "seeded" map 
+               <Y>  Use input map as mask, generate siple random map 
+
+         Map choice: M
+         Enter the number of levels and H
+
+         Maxlevel     7   H = 0.500000    
+         Rows x Columns =    128 x    128
+         Wrap map?
+
+         N  Wrap = F
+         Enter a negative random number seed 
+
+         Random number seed:    -111795
+         Enter the neighborhood rule
+               1 - nearest neighbor (N_nb = 4)
+               2 - next nearest neighbor (N_nb = 8)
+               3 - 3rd nearest neighbor (N_nb = 12)
+               4 - user defined
+
+         Rule choice is: 2
+         Enter the number of map classes
+
+         Map classes =     1
+         Enter the   2 probabilities, starting with p(0)
+
+         The normalized probabilities are:
+                 P          CumP
+           0    0.5500     0.5500
+           1    0.4500     1.0000
+
+         Enter the number of replications
+
+         N_Reps =     10
+         Create an output maps?
+            N = None
+            G = generated map
+            S = cluster Size map
+            C = cluster ID map
+
+         Map output choice = G
+         Name of output file?
+
+         Output file for generated map: map5.txt                                                    
+         Perform map analysis?
+              <N>o analysis
+              <L>acunarity analysis
+              <R>ule analysis 
+              <A>ll (both Rule and Lacunarity)
+
+         Analysis method: RULE
+
+         What is the resolution of each grid element?
+            (length of the side of a grid element, in meters)
+
+         Resolution:  10.0000     meters
+
+                        Mean Association Matrix 
+         Avg ChiX =  0.00000     w/    0 df (FXceed (  0.0000) = -NaN    )
+               0        1
+       0   0.512109 0.037605
+       1   0.037605 0.412681
+
+
+     p's  0.549714 0.450286
+
+         STATISTICAL SUMMARY (N=    10; Resolution= 10.0000 meters)
+
+--Cover Type 0 (non habitat)--    [p =  0.5495   Cum. p =  0.5495]
+--Land Cover Type  1--            [p =  0.4505   Cum. p =  1.0000]
+Variable  Units  Mean        St.Dev.       C. V.      Minimum      Maximum
+ L.C.size  ha  61.5980      12.3049      19.9762      40.8300      73.0300    
+ L.C.edge  m   36336.0      12964.1      35.6784      21140.0      65880.0    
+ L.C.fract -   1.86024     0.396549E-01  2.13171      1.81684      1.92145    
+ L.C._rms  m   439.968      61.8063      14.0479      302.094      526.153    
+ TTL clstr N   78.6000      25.3780      32.2876      39.0000      116.000    
+ TTL edgs  m   59802.0      12493.3      20.8911      43180.0      86560.0    
+ Sav size  ha  55.3040      15.8993      28.7489      28.0433      71.8699    
+ S_Freq    N   7380.90      44.6728     0.605248      7311.00      7452.00    
+ Cor_len   m   431.933      66.1924      15.3247      285.669      525.248    
+ Perc      %  0.700000     0.483046      69.0066      0.00000      1.00000    
+
+

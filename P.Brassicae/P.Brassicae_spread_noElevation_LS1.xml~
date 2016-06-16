@@ -1,0 +1,108 @@
+<model>
+	<user><email>Audrey.Lustig@lincoln.ac.nz</email></user>
+
+	<name>P.Brassicae_spread_noElevation_LS1</name>
+	<description> Spread model for P. brassicae - survival layer LS1</description>
+	<random>
+		<initialSeed> 1 </initialSeed> <!-- Starting seed for replicates -->
+		<replicates> 500 </replicates> <!-- Number of times to repeat simulation for each combination of parameters -->
+		<offset>50</offset> <!-- The last state of the rnadom number generator in case the simulation didn't finish last time -->
+   	</random>
+	<GISLocation>grass_loc</GISLocation>
+	<regions>
+		<region id="pb" name="GWBregion"> <!-- id is for referral from replicates below, name loads region from file -->
+			<resolution>50</resolution> <!-- Resolution to run simulation in -->
+		</region>
+		
+	</regions>
+	<period>
+		<startTime> 2010 </startTime>  <!-- Time period to run the simulation for -->
+		<endTime> 2050 </endTime>
+	</period>
+	
+	<output>
+		<raster>
+			<interval>1</interval> <!-- Output a map every year -->
+			<lifestage>all</lifestage> 
+		</raster>
+	</output>
+	
+	<lifestages>
+		<lifestage name="all" populationBased="false">
+			<initialDistribution region="pb"> <!-- Define initial population for region -->
+				<sites>
+					<s x="1620499" y="5429929"/>
+					<!-- <s x="1623974" y="5430461"/>-->
+				</sites>
+			</initialDistribution>
+			<phenology region="pb"> <!-- Define when the lifestage occurs can be a value or a map -->
+				<value> 1 </value>
+			</phenology>
+			
+
+		<event name="r.mdig.neighbour">
+				<param name="shape">
+					<value>186</value> 
+				</param>
+				<param name="radius">
+					<value>2</value>
+				</param>
+				<ifNotPopulationBased>
+					<flag name="b"/>
+				</ifNotPopulationBased>
+			</event>
+			<!-- list dispersal events and there parameters -->
+			 <event name="r.mdig.kernel">
+       			 <param name="kernel">
+          			<value>cauchy</value>
+        			</param>
+		   		<param name="d_a">
+          			<value>24752</value>
+        			</param>
+        			<param name="d_b">
+         				<value>11894</value>
+        			</param>
+        			<param name="frequency">
+          			<value>0.4</value>
+        			</param>
+        			<flag name="b"/>
+      		</event> 
+     		
+			<event name="r.mdig.survival">
+				<param name="survival">
+					<value>landscape1@PERMANENT</value>
+				</param>
+				<param name="seed">
+					<seed/>
+				</param>
+				<ifNotPopulationBased>
+					<flag name="b"/>
+				</ifNotPopulationBased>
+			</event>
+			
+			<!-- Analysis here is for analysis at the end of each year/timestep-->
+			<analyses>
+				<analysis name="r.stats">
+					<param name="input">
+						<previousMap/>
+					</param>
+					<flag name="c"/>
+					<flag name="n"/>
+					<output>
+						<file generate="true" ext=".dat" append="true" date="true"></file>
+					</output>
+				</analysis>
+			</analyses>
+			
+		</lifestage>
+		
+		<!-- Analysis here can access all lifestages maps -->
+<!--		<analyses>
+		</analyses> -->
+
+	</lifestages>
+	
+	<!-- Analysis here is done at the end of each replicate -->
+<!--	<analyses>
+	</analyses>-->
+</model>

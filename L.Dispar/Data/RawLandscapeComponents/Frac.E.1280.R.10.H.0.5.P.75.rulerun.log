@@ -1,0 +1,49 @@
+
+
+         Qrule (v 4.1) Landscape Pattern Analysis          03/02/16 
+         Map choice: M
+         Maxlevel     7   H = 0.500000    
+         Rows x Columns =    128 x    128
+         N  Wrap = F
+         Random number seed:     -72541
+         Rule choice is: 2
+         Map classes =     1
+         The normalized probabilities are:
+                 P          CumP
+           0    0.7500     0.7500
+           1    0.2500     1.0000
+         N_Reps =     10
+         Map output choice = G
+         Output file for generated map: map6.txt                                                    
+         Analysis method: RULE
+
+         Resolution:  10.0000     meters
+
+                        Mean Association Matrix 
+         Avg ChiX =  0.00000     w/    0 df (FXceed (  0.0000) = -NaN    )
+               0        1
+       0   0.708431 0.042174
+       1   0.042174 0.207222
+
+
+     p's  0.750604 0.249396
+
+         STATISTICAL SUMMARY (N=    10; Resolution= 10.0000 meters)
+
+--Cover Type 0 (non habitat)--    [p =  0.7505   Cum. p =  0.7505]
+--Land Cover Type  1--            [p =  0.2495   Cum. p =  1.0000]
+Variable  Units  Mean        St.Dev.       C. V.      Minimum      Maximum
+ L.C.size  ha  21.7540      8.42300      38.7193      11.7700      38.1900    
+ L.C.edge  m   21296.0      8481.20      39.8253      10800.0      37040.0    
+ L.C.fract -   1.79829     0.487890E-01  2.71308      1.72346      1.88487    
+ L.C._rms  m   256.119      67.2009      26.2381      176.110      408.194    
+ TTL clstr N   104.900      23.1010      22.0219      72.0000      138.000    
+ TTL edgs  m   62720.0      12645.8      20.1624      41520.0      79940.0    
+ Sav size  ha  15.8440      8.71923      55.0319      8.39993      35.4612    
+ S_Freq    N   4087.10      33.9622     0.830962      4014.00      4127.00    
+ Cor_len   m   245.653      70.5180      28.7063      167.329      408.138    
+ Perc      %  0.100000     0.316228      316.228      0.00000      1.00000    
+
+
+ Time in: [hr 10 m 16 s 52 (ms 778)]
+ Time in: [hr 10 m 16 s 52 (ms 988)]

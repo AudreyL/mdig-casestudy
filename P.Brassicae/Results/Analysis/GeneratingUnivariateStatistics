@@ -1,0 +1,6 @@
+awk -F " " '{print $1}' GWB_disp_withE_region_pb_i0_rep_0.dat > average_area1.dat; 
+for i in GWB_disp_withE_region_pb*.dat; do 
+	awk -F " " '{print $3}' $i > average_area2.dat
+	paste -d " " average_area{1..2}.dat > average_area.dat
+	mv average_area.dat average_area1.dat;
+done;

@@ -1,0 +1,37 @@
+#!/usr/bin/bash
+
+# run in sim mapset once prob envelopes are generated
+# modified from Joel Pitt - https://github.com/ferrouswheel/mdig/wiki/Example-Analyses
+# May 2016
+
+mapname='occupancy_map_prefix'
+begin_t=2010
+end_t=2050
+min_thresh=0.01
+# must be smallest to largest
+thresholds="0.05 0.1 0.5"
+
+if [ -f ${mapname}_area.dat ]; then
+    rm ${mapname}_area.dat
+fi
+for t in `seq ${begin_t} ${end_t}`
+do
+    echo -n "time $t "
+    thresh_index=1
+    thresh_map=\"${mapname}${t}_prob_thresholds\"
+    echo ${thresh_map}
+    r.mapcalc "${thresh_map}=if(\"${mapname}${t}_prob\">${min_thresh},${thresh_index},null())"
+    for thresh in $thresholds
+    do
+        thresh_index=$((${thresh_index} + 1))
+        #create thresholded map
+        r.mapcalc "${thresh_map}=if(\"${mapname}${t}_prob\">${thresh},${thresh_index},${thresh_map})"
+    done
+
+    echo 
+    echo -n "$t" >> ${mapname}_area.dat
+    r.stats -c ${thresh_map//\"/} | awk '{printf ","; printf " %s", $2;} END {printf "\n"}' >> ${mapname}_area.dat
+    r.out.gdal input=${thresh_map//\"/} output=${thresh_map//\"/}.tif type=UInt16
+    r.out.gdal input=${thresh_map//\"/} output=${thresh_map//\"/}.png
+done
+
